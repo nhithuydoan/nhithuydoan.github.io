@@ -107,7 +107,7 @@ h1, h2 {
     letter-spacing: 0.1em;
     margin: 0;
     line-height: 1.2;
-    color: var(--white);
+    color: var(--light-gray);
 }
 
 .tagline {
