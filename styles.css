@@ -4,7 +4,7 @@
     --lightest-navy: #233554;
     --white: #e6f1ff;
     --light-gray: #8892b0;
-    --soft-rose: #e6b3b3;     /* New soft rose color */
+    --soft-rose: #e6b3b3;     
 }
 
 body {
@@ -56,7 +56,7 @@ h1, h2 {
 .nav-icon {
     width: 20px;
     height: 20px;
-    stroke: var(--soft-rose);  /* Changed to soft rose */
+    stroke: var(--soft-rose);  
     fill: none;
     transition: all 0.3s ease;
 }
@@ -78,7 +78,7 @@ h1, h2 {
     visibility: hidden;
     transition: all 0.3s ease;
     white-space: nowrap;
-    border-left: 2px solid var(--soft-rose);  /* Changed to soft rose */
+    border-left: 2px solid var(--soft-rose); 
 }
 
 .nav-links a:hover .tooltip {
@@ -148,7 +148,7 @@ h1, h2 {
 }
 
 .profile-img:hover {
-    border-color: var(--soft-rose);  /* Changed to soft rose */
+    border-color: var(--soft-rose); 
 }
 
 .section-title {
@@ -207,8 +207,8 @@ h1, h2 {
 }
 
 .contact-btn:hover {
-    border-color: var(--soft-rose);  /* Changed to soft rose */
-    background: var(--soft-rose);    /* Changed to soft rose */
+    border-color: var(--soft-rose); 
+    background: var(--soft-rose);    
     color: var(--navy);
 }
 
