@@ -5,7 +5,7 @@
     --white: #e6f1ff;
     --light-gray: #8892b0;
     --rose: #ff8b9c;
-    --rose-bright: #ff6b85;    /* Added brighter rose for better visibility */
+    --rose-bright: #ff6b85;
     --rose-light: #ffd1d8;
     --rose-dark: #e67d8e;
 }
@@ -53,20 +53,19 @@ h1, h2 {
 }
 
 .nav-links a:hover {
-    color: var(--rose-bright);
+    color: var(--white);
 }
 
 .nav-icon {
     width: 20px;
     height: 20px;
-    stroke: var(--light-gray);
+    stroke: var(--rose-bright); 
     fill: none;
     transition: all 0.3s ease;
 }
 
 .nav-links a:hover .nav-icon {
-    stroke: var(--rose-bright);
-    transform: translateX(-5px);
+    transform: translateX(-5px);  
 }
 
 .tooltip {
@@ -111,7 +110,7 @@ h1, h2 {
     letter-spacing: 0.1em;
     margin: 0;
     line-height: 1.2;
-    background: linear-gradient(45deg, var(--white), var(--rose-light));
+    background: linear-gradient(45deg, var(--white), var(--light-gray)); /* Changed back to white gradient */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -159,7 +158,7 @@ h1, h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
     letter-spacing: 0.05em;
-    background: linear-gradient(45deg, var(--white), var(--rose-light));
+    background: linear-gradient(45deg, var(--white), var(--light-gray)); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
