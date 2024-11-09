@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Page</title>
+    <!-- Adding Inter font for clean, modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0a192f;
+            --light-navy: #112240;
+            --lightest-navy: #233554;
+            --white: #e6f1ff;
+            --light-gray: #8892b0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--navy);
+            color: var(--white);
+            font-weight: 300;
+        }
+
+        .nav {
+            position: fixed;
+            top: 50%;
+            right: 2rem;
+            transform: translateY(-50%);
+            z-index: 1000;
+            text-align: right;
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-links li {
+            margin: 1.5rem 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--light-gray);
+            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            display: inline-block;
+            font-weight: 300;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+            transform: translateX(-5px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 6rem;
+            min-height: 100vh;
+            justify-content: center;
+        }
+
+        .name {
+            font-size: 3.5rem;
+            letter-spacing: 0.2em;
+            margin: 0;
+            text-transform: uppercase;
+            font-weight: 300;
+            color: var(--white);
+            line-height: 1.2;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--light-gray);
+            margin: 1rem 0 2rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+        }
+
+        .welcome-text {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--light-gray);
+            letter-spacing: 0.05em;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+            margin: 6rem 0;
+            padding: 0 2rem;
+            min-height: 100vh;
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 2px solid var(--lightest-navy);
+        }
+
+        .about-content {
+            color: var(--light-gray);
+            letter-spacing: 0.05em;
+            line-height: 1.8;
+        }
+
+        .about-content h2 {
+            color: var(--white);
+            font-weight: 300;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .tech-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .tech-item {
+            position: relative;
+            padding-left: 1.5rem;
+            color: var(--light-gray);
+            font-size: 0.95rem;
+        }
+
+        .tech-item::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--white);
+        }
+
+        .work-section, .art-section {
+            min-height: 100vh;
+            padding: 4rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            letter-spacing: 0.1em;
+        }
+
+        .contact-section {
+            text-align: center;
+            margin-top: 4rem;
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border: 1px solid var(--white);
+            text-decoration: none;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            background: transparent;
+            font-weight: 300;
+        }
+
+        .contact-btn:hover {
+            background: var(--white);
+            color: var(--navy);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 4rem;
+            color: var(--light-gray);
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-img {
+                margin: 0 auto;
+            }
+
+            .nav {
+                position: fixed;
+                top: 1rem;
+                right: 1rem;
+                transform: none;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 1rem;
+            }
+
+            .nav-links li {
+                margin: 0;
+            }
+
+            .name {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#art">Art</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#resume">Resume</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="hero-section">
+            <h1 class="name">Your Name</h1>
+            <p class="tagline">a software & art enthusiast</p>
+            <p class="welcome-text">
+                Welcome to my tinkering space, where I keep myself busy with fun projects and occasionally blog about my journey in tech and art.
+            </p>
+        </section>
+
+        <section class="about-section" id="about">
+            <div class="profile-image">
+                <img src="/api/placeholder/300/300" alt="Profile Picture" class="profile-img">
+            </div>
+            <div class="about-content">
+                <h2>About Me</h2>
+                <p>
+                    Hi! I'm a software developer and artist passionate about creating unique, well-designed applications that make life easier. When not coding, I explore my creative side through various art forms and continue learning new skills.
+                </p>
+                <div class="tech-list">
+                    <div class="tech-item">JavaScript</div>
+                    <div class="tech-item">React</div>
+                    <div class="tech-item">Node.js</div>
+                    <div class="tech-item">Python</div>
+                    <div class="tech-item">CSS</div>
+                    <div class="tech-item">Git</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="work-section" id="work">
+            <h2 class="section-title">Work</h2>
+            <!-- Add your work content here -->
+        </section>
+
+        <section class="art-section" id="art">
+            <h2 class="section-title">Art</h2>
+            <!-- Add your art content here -->
+        </section>
+
+        <section class="contact-section" id="contact">
+            <a href="mailto:your.email@example.com" class="contact-btn">Say Hi</a>
+        </section>
+
+        <footer class="footer">
+            <p>© 2024 Designed & Built by Your Name</p>
+        </footer>
+    </div>
+</body>
+</html>
