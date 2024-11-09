@@ -5,6 +5,7 @@
     --white: #e6f1ff;
     --light-gray: #8892b0;
     --rose: #ff8b9c;
+    --rose-bright: #ff6b85;    /* Added brighter rose for better visibility */
     --rose-light: #ffd1d8;
     --rose-dark: #e67d8e;
 }
@@ -52,19 +53,20 @@ h1, h2 {
 }
 
 .nav-links a:hover {
-    color: var(--rose);
-    transform: translateX(-5px);
+    color: var(--rose-bright);
 }
 
 .nav-icon {
     width: 20px;
     height: 20px;
     stroke: var(--light-gray);
+    fill: none;
     transition: all 0.3s ease;
 }
 
 .nav-links a:hover .nav-icon {
-    stroke: var(--rose);
+    stroke: var(--rose-bright);
+    transform: translateX(-5px);
 }
 
 .tooltip {
@@ -150,7 +152,7 @@ h1, h2 {
 }
 
 .profile-img:hover {
-    border-color: var(--rose);
+    border-color: var(--rose-bright);
 }
 
 .section-title {
@@ -179,7 +181,7 @@ h1, h2 {
     content: "▹";
     position: absolute;
     left: 0;
-    color: var(--rose);
+    color: var(--rose-bright);
 }
 
 .work-section, .art-section {
@@ -209,8 +211,8 @@ h1, h2 {
 }
 
 .contact-btn:hover {
-    border-color: var(--rose);
-    background: var(--rose);
+    border-color: var(--rose-bright);
+    background: var(--rose-bright);
     color: var(--navy);
 }
 
