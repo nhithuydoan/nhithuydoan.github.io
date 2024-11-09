@@ -4,10 +4,7 @@
     --lightest-navy: #233554;
     --white: #e6f1ff;
     --light-gray: #8892b0;
-    --rose: #ff8b9c;
-    --rose-bright: #ff6b85;
-    --rose-light: #ffd1d8;
-    --rose-dark: #e67d8e;
+    --soft-rose: #e6b3b3;     /* New soft rose color */
 }
 
 body {
@@ -59,13 +56,13 @@ h1, h2 {
 .nav-icon {
     width: 20px;
     height: 20px;
-    stroke: var(--rose-bright); 
+    stroke: var(--soft-rose);  /* Changed to soft rose */
     fill: none;
     transition: all 0.3s ease;
 }
 
 .nav-links a:hover .nav-icon {
-    transform: translateX(-5px);  
+    transform: translateX(-5px);
 }
 
 .tooltip {
@@ -81,7 +78,7 @@ h1, h2 {
     visibility: hidden;
     transition: all 0.3s ease;
     white-space: nowrap;
-    border-left: 2px solid var(--rose);
+    border-left: 2px solid var(--soft-rose);  /* Changed to soft rose */
 }
 
 .nav-links a:hover .tooltip {
@@ -110,7 +107,7 @@ h1, h2 {
     letter-spacing: 0.1em;
     margin: 0;
     line-height: 1.2;
-    background: linear-gradient(45deg, var(--white), var(--light-gray)); /* Changed back to white gradient */
+    background: linear-gradient(45deg, var(--white), var(--light-gray));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -151,14 +148,14 @@ h1, h2 {
 }
 
 .profile-img:hover {
-    border-color: var(--rose-bright);
+    border-color: var(--soft-rose);  /* Changed to soft rose */
 }
 
 .section-title {
     font-size: 2.5rem;
     margin-bottom: 2rem;
     letter-spacing: 0.05em;
-    background: linear-gradient(45deg, var(--white), var(--light-gray)); 
+    background: linear-gradient(45deg, var(--white), var(--light-gray));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -180,7 +177,7 @@ h1, h2 {
     content: "▹";
     position: absolute;
     left: 0;
-    color: var(--rose-bright);
+    color: var(--soft-rose);  /* Changed to soft rose */
 }
 
 .work-section, .art-section {
@@ -210,8 +207,8 @@ h1, h2 {
 }
 
 .contact-btn:hover {
-    border-color: var(--rose-bright);
-    background: var(--rose-bright);
+    border-color: var(--soft-rose);  /* Changed to soft rose */
+    background: var(--soft-rose);    /* Changed to soft rose */
     color: var(--navy);
 }
 
