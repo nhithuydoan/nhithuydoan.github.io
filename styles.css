@@ -7,13 +7,14 @@
     --soft-rose: #deb0b0;     
 }
 
+/* Base Styles */
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
     background-color: var(--navy);
-    color: var(--light-gray); /* or white*/
+    color: var(--light-gray);
     font-weight: 300;
 }
 
@@ -22,6 +23,7 @@ h1, h2 {
     font-weight: 400;
 }
 
+/* Navigation */
 .nav {
     position: fixed;
     top: 50%;
@@ -87,12 +89,14 @@ h1, h2 {
     right: 120%;
 }
 
+/* Layout */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
 }
 
+/* Hero Section */
 .hero-section {
     display: flex;
     flex-direction: column;
@@ -126,6 +130,7 @@ h1, h2 {
     line-height: 1.8;
 }
 
+/* About Section */
 .about-section {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -176,6 +181,7 @@ h1, h2 {
     color: var(--soft-rose);
 }
 
+/* Work Section */
 .work-section, .art-section {
     min-height: 100vh;
     padding: 4rem 2rem;
@@ -184,6 +190,91 @@ h1, h2 {
     justify-content: center;
 }
 
+.projects-container {
+    display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
+    height: 600px;
+}
+
+.project {
+    background-color: var(--light-navy);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+}
+
+.project-main {
+    flex: 3;
+    height: 100%;
+}
+
+.projects-secondary {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.project-secondary {
+    height: calc(50% - 1rem);
+}
+
+.project-title {
+    color: var(--white);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.project-description {
+    color: var(--light-gray);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.project-tech-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.project-tech-list li {
+    color: var(--soft-rose);
+    font-size: 0.85rem;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.project-link {
+    color: var(--light-gray);
+    transition: color 0.3s ease;
+}
+
+.project-link:hover {
+    color: var(--soft-rose);
+}
+
+.project-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Contact Section */
 .contact-section {
     text-align: center;
     padding: 4rem 0;
@@ -208,6 +299,7 @@ h1, h2 {
     color: var(--navy);
 }
 
+/* Footer */
 .footer {
     text-align: center;
     padding: 2rem 0;
@@ -215,6 +307,7 @@ h1, h2 {
     font-size: 0.9rem;
 }
 
+/* Media Queries */
 @media (max-width: 768px) {
     .about-section {
         grid-template-columns: 1fr;
@@ -252,5 +345,20 @@ h1, h2 {
 
     .tooltip {
         display: none;
+    }
+
+    .projects-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .project-main,
+    .projects-secondary {
+        flex: 1;
+    }
+
+    .project {
+        height: auto;
+        min-height: 300px;
     }
 }
