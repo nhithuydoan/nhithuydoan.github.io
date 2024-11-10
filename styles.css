@@ -13,7 +13,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--navy);
-    color: var(--light-gray);
+    color: var(--light-gray); /* or white*/
     font-weight: 300;
 }
 
@@ -192,9 +192,9 @@ h1, h2 {
 .contact-btn {
     display: inline-block;
     padding: 1rem 2rem;
-    border: 1px solid var(--white);
+    border: 1px solid var(--light-gray);
     text-decoration: none;
-    color: var(--white);
+    color: var(--light-gray);
     text-transform: uppercase;
     letter-spacing: 0.2em;
     font-size: 0.9rem;
