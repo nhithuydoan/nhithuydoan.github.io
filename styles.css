@@ -13,7 +13,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--navy);
-    color: var(--white);
+    color: var(--light-gray);
     font-weight: 300;
 }
 
@@ -173,7 +173,7 @@ h1, h2 {
     content: "▹";
     position: absolute;
     left: 0;
-    color: var(--soft-rose);  /* Changed to soft rose */
+    color: var(--soft-rose);
 }
 
 .work-section, .art-section {
