@@ -176,7 +176,127 @@ h1, h2 {
     color: var(--soft-rose);
 }
 
-.work-section, .art-section {
+/* Updated Work Section Styles */
+.work-section {
+    min-height: 100vh;
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.work-container {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.featured-research {
+    background: var(--light-navy);
+    border-radius: 8px;
+    padding: 2rem;
+    height: 100%;
+}
+
+.featured-research h3 {
+    font-size: 1.8rem;
+    color: var(--soft-rose);
+    margin-bottom: 1rem;
+}
+
+.project-gallery {
+    margin: 2rem 0;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 180px);
+    gap: 1rem;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    background: var(--lightest-navy);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item.large {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.gallery-item.vertical {
+    grid-row: span 2;
+}
+
+.gallery-item.horizontal {
+    grid-column: span 2;
+}
+
+.research-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: 100%;
+}
+
+.research-item {
+    background: var(--light-navy);
+    border-radius: 8px;
+    overflow: hidden;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.research-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.research-info {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.research-info p {
+    color: var(--light-gray);
+    margin-bottom: 1.5rem;
+    flex: 1;
+}
+
+.research-details {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.detail-tag {
+    background: var(--lightest-navy);
+    color: var(--soft-rose);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+}
+
+/* Art Section Styles (keeping original) */
+.art-section {
     min-height: 100vh;
     padding: 4rem 2rem;
     display: flex;
@@ -252,5 +372,22 @@ h1, h2 {
 
     .tooltip {
         display: none;
+    }
+
+    /* Added responsive styles for work section */
+    .work-container {
+        grid-template-columns: 1fr;
+    }
+
+    .research-grid {
+        gap: 1.5rem;
+    }
+
+    .gallery-grid {
+        grid-template-rows: repeat(2, 150px);
+    }
+
+    .research-item img {
+        height: 180px;
     }
 }
