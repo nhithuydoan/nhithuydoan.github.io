@@ -376,7 +376,7 @@ h1, h2 {
 
 /* Define grid areas for different sizes */
 .art-item.large {
-    grid-column: 1 / span 4;
+    grid-column: 1 / span 3;
     grid-row: 1 / span 3;
 }
 
