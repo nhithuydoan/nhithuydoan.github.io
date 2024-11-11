@@ -376,7 +376,7 @@ h1, h2 {
 
 /* Define grid areas for different sizes */
 .art-item.large {
-    grid-column: 1 / span 2;
+    grid-column: 1 / span 3;
     grid-row: 1 / span 2;
 }
 
@@ -387,12 +387,12 @@ h1, h2 {
 
 .art-item.medium {
     grid-column: 1 / span 2;
-    grid-row: 3 / span 1;
+    grid-row: 4 / span 1;
 }
 
 .art-item.small {
     grid-column: 3 / span 1;
-    grid-row: 3 / span 1;
+    grid-row: 4 / span 1;
 }
 
 .art-image {
