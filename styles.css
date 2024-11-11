@@ -213,7 +213,7 @@ h1, h2 {
 }
 
 .project-main {
-    flex: 3;
+    flex: 1.8;
     height: 100%;
 }
 
@@ -305,7 +305,7 @@ h1, h2 {
 }
 
 .project-main .project-image {
-    height: 250px;
+    height: 220px;
 }
 
 .project-image:hover {
@@ -377,7 +377,7 @@ h1, h2 {
 /* Define grid areas for different sizes */
 .art-item.large {
     grid-column: 1 / span 3;
-    grid-row: 1 / span 3;
+    grid-row: 1 / span 4;
 }
 
 .art-item.vertical {
