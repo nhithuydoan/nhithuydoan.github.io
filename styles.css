@@ -387,12 +387,12 @@ h1, h2 {
 
 .art-item.medium {
     grid-column: 1 / span 2;
-    grid-row: 3 / span 2;
+    grid-row: 3 / span 1;
 }
 
 .art-item.small {
     grid-column: 3 / span 1;
-    grid-row: 3 / span 2;
+    grid-row: 3 / span 1;
 }
 
 .art-image {
