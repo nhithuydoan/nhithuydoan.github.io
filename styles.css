@@ -401,6 +401,17 @@ h1, h2 {
     padding: 4rem 0;
 }
 
+.contact-wrapper {
+    display: inline-block;
+    position: relative;
+}
+
+.contact-wrapper:hover .contact-text {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
 .contact-btn {
     display: inline-block;
     padding: 1rem 2rem;
@@ -412,6 +423,22 @@ h1, h2 {
     font-size: 0.9rem;
     transition: all 0.3s ease;
     background: transparent;
+}
+
+.contact-text {
+    color: var(--light-gray);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.contact-wrapper:hover .contact-btn {
+    opacity: 1;
+    border-color: var(--soft-rose);
+    color: var(--soft-rose);
+    transform: translateY(-15px);
 }
 
 .contact-btn:hover {
