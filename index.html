@@ -107,7 +107,10 @@
                         </div>
                     </div>
                     <div class="project-image-container">
-                        <img src="stentor.jpg" alt="Project 1" class="project-image">
+                        <video class="project-video" autoplay loop muted playsinline>
+                            <source src="stentor.mp4" type="video/mp4">
+                            <img src="stentor.jpg" alt="Stentor Research" class="project-image">
+                        </video>
                     </div>
                 </div>
                 
@@ -172,5 +175,20 @@
             <p>© 2024 designed & built by nhithuydoan</p>
         </footer>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('.project-video');
+            if (video) {
+                // Check if the browser can play MP4 videos
+                if (!video.canPlayType || !video.canPlayType('video/mp4').replace(/no/, '')) {
+                    // If video is not supported, replace it with the fallback image
+                    const fallbackImg = video.querySelector('img');
+                    if (fallbackImg) {
+                        video.parentNode.replaceChild(fallbackImg.cloneNode(true), video);
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
