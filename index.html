@@ -9,32 +9,42 @@
     
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Section transitions */
+        /* Section transitions with slide effect */
         section {
             opacity: 1;
-            transition: opacity 0.5s ease;
+            transition: all 0.5s ease;
         }
 
-        section.fade-in {
-            opacity: 0;
-            animation: fadeIn 0.8s forwards;
+        /* Slide up and out animation */
+        @keyframes slideUpOut {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .slide-up-out {
+            animation: slideUpOut 0.3s forwards;
         }
 
-        /* Adjust hero section for full-screen display */
-        .hero-section {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            z-index: 1;
+        /* Slide up and in animation */
+        @keyframes slideUpIn {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .slide-up-in {
+            animation: slideUpIn 0.5s forwards;
         }
 
         /* Active navigation state */
@@ -47,6 +57,11 @@
             opacity: 1;
             visibility: visible;
             right: 120%;
+        }
+
+        /* Make sure all sections use proper positioning */
+        section {
+            min-height: 100vh;
         }
     </style>
 </head>
@@ -222,11 +237,19 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Hide all sections except hero initially
+            // Initial state: only hero section visible
+            const heroSection = document.querySelector('.hero-section');
             const sections = document.querySelectorAll('section:not(.hero-section)');
+            const footer = document.querySelector('.footer');
+            
+            // Hide all non-hero sections and footer initially
             sections.forEach(section => {
                 section.style.display = 'none';
             });
+            
+            if (footer) {
+                footer.style.display = 'none';
+            }
             
             // Add click event listeners to navigation links
             const navLinks = document.querySelectorAll('.nav-links a');
@@ -240,19 +263,31 @@
                         // Add active class to clicked link
                         this.classList.add('active');
                         
-                        // Hide all sections
-                        sections.forEach(section => {
-                            section.style.display = 'none';
-                        });
+                        // Hide hero section with slide-up effect
+                        heroSection.classList.add('slide-up-out');
                         
-                        // Show only the clicked section
-                        const targetId = this.getAttribute('href').substring(1);
-                        const targetSection = document.getElementById(targetId);
-                        if (targetSection) {
-                            targetSection.style.display = 'flex';
-                            targetSection.classList.add('fade-in');
-                            // No need to scroll since we're not moving down the page
-                        }
+                        // After hero slides up, show target section
+                        setTimeout(() => {
+                            // Hide all sections
+                            heroSection.style.display = 'none';
+                            sections.forEach(section => {
+                                section.style.display = 'none';
+                                section.classList.remove('slide-up-in');
+                            });
+                            
+                            // Show only the clicked section
+                            const targetId = this.getAttribute('href').substring(1);
+                            const targetSection = document.getElementById(targetId);
+                            if (targetSection) {
+                                targetSection.style.display = 'flex';
+                                targetSection.classList.add('slide-up-in');
+                                
+                                // Show footer when section is visible
+                                if (footer) {
+                                    footer.style.display = 'block';
+                                }
+                            }
+                        }, 300); // Matches the transition time
                     });
                 }
             });
