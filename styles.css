@@ -443,7 +443,7 @@ h1, h2 {
 
 .contact-btn:hover {
     border-color: var(--soft-rose); 
-    background: var(--soft-rose);    
+    background: var(--navy) !important;    
     color: var(--navy);
 }
 
