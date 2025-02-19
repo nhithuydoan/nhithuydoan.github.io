@@ -408,8 +408,8 @@ h1, h2 {
 
 .contact-wrapper:hover .contact-text {
     opacity: 0;
-    transform: none;
-    transition: none;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
 }
 
 .contact-btn {
@@ -443,7 +443,7 @@ h1, h2 {
 
 .contact-btn:hover {
     border-color: var(--soft-rose); 
-    background: var(--navy) !important;    
+    background: var(--soft-rose);    
     color: var(--navy);
 }
 
