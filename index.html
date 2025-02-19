@@ -9,13 +9,11 @@
     
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Section transitions with slide effect */
         section {
             opacity: 1;
             transition: all 0.5s ease;
         }
 
-        /* Slide up and out animation */
         @keyframes slideUpOut {
             0% {
                 transform: translateY(0);
@@ -31,7 +29,6 @@
             animation: slideUpOut 0.3s forwards;
         }
 
-        /* Slide up and in animation */
         @keyframes slideUpIn {
             0% {
                 transform: translateY(50px);
@@ -47,9 +44,8 @@
             animation: slideUpIn 0.5s forwards;
         }
 
-        /* Active navigation state */
         .nav-links a.active .nav-icon {
-            stroke: var(--white);
+            stroke: var(--soft-rose);
             transform: translateX(-5px);
         }
 
@@ -59,12 +55,10 @@
             right: 120%;
         }
 
-        /* Make sure all sections use proper positioning */
         section {
             min-height: 100vh;
         }
         
-        /* Fix for contact section width */
         .contact-section {
             width: 100%;
             display: flex;
@@ -248,12 +242,10 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Initial state: only hero section visible
             const heroSection = document.querySelector('.hero-section');
             const sections = document.querySelectorAll('section:not(.hero-section)');
             const footer = document.querySelector('.footer');
             
-            // Hide all non-hero sections and footer initially
             sections.forEach(section => {
                 section.style.display = 'none';
             });
@@ -262,53 +254,42 @@
                 footer.style.display = 'none';
             }
             
-            // Add click event listeners to navigation links
             const navLinks = document.querySelectorAll('.nav-links a');
             navLinks.forEach(link => {
                 if (link.getAttribute('href').startsWith('#') && link.getAttribute('href') !== '#') {
                     link.addEventListener('click', function(e) {
                         e.preventDefault();
                         
-                        // Remove active class from all links
                         navLinks.forEach(l => l.classList.remove('active'));
-                        // Add active class to clicked link
                         this.classList.add('active');
                         
-                        // Hide hero section with slide-up effect
                         heroSection.classList.add('slide-up-out');
                         
-                        // After hero slides up, show target section
                         setTimeout(() => {
-                            // Hide all sections
                             heroSection.style.display = 'none';
                             sections.forEach(section => {
                                 section.style.display = 'none';
                                 section.classList.remove('slide-up-in');
                             });
                             
-                            // Show only the clicked section
                             const targetId = this.getAttribute('href').substring(1);
                             const targetSection = document.getElementById(targetId);
                             if (targetSection) {
                                 targetSection.style.display = 'flex';
                                 targetSection.classList.add('slide-up-in');
                                 
-                                // Show footer when section is visible
                                 if (footer) {
                                     footer.style.display = 'block';
                                 }
                             }
-                        }, 300); // Matches the transition time
+                        }, 300); 
                     });
                 }
             });
             
-            // Handle video fallback
             const video = document.querySelector('.project-video');
             if (video) {
-                // Check if the browser can play MP4 videos
                 if (!video.canPlayType || !video.canPlayType('video/mp4').replace(/no/, '')) {
-                    // If video is not supported, replace it with the fallback image
                     const fallbackImg = video.querySelector('img');
                     if (fallbackImg) {
                         video.parentNode.replaceChild(fallbackImg.cloneNode(true), video);
