@@ -445,6 +445,7 @@ h1, h2 {
     border-color: var(--soft-rose); 
     background: var(--soft-rose);    
     color: var(--navy);
+    transform: translateY(-5px);
 }
 
 /* Footer */
