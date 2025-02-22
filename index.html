@@ -68,13 +68,16 @@
         
         .contact-btn:hover {
             background-color: var(--soft-rose);
-            color: var(--navy);
+            color: var(--navy) !important; /* Using !important to ensure this override takes effect */
             border-color: var(--soft-rose);
         }
         
         .contact-wrapper:hover .contact-btn {
             opacity: 1;
             visibility: visible;
+            border-color: var(--soft-rose);
+            color: var(--navy);
+            transform: translateY(-15px);
         }
         
         .contact-wrapper:hover .contact-text {
@@ -147,7 +150,7 @@
                 </a>
             </li>
             <li>
-                <a href="#embroidery">
+                <a href="#art">
                     <svg class="nav-icon" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
                         <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
@@ -266,7 +269,7 @@
             </div>
         </section>
 
-        <section class="art-section" id="art">
+        <section class="art-section" id="embroidery">
             <h2 class="section-title">Art</h2>
             <div class="art-grid">
                 <div class="art-item large">
