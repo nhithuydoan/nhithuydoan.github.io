@@ -50,11 +50,8 @@
         }
 
         .nav-links a.active .tooltip {
-            opacity: 1;
-            visibility: visible;
-            right: 120%;
-            background: var(--lightest-navy);
-            border-left: 2px solid var(--soft-rose);
+            opacity: 0;
+            visibility: hidden;
         }
 
         section {
@@ -85,6 +82,46 @@
             transform: none;
             transition: none;
         }
+
+        /* Update tooltip styles */
+        .tooltip {
+            position: absolute;
+            right: 150%;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--light-navy);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            border-left: 2px solid var(--soft-rose);
+            pointer-events: none; /* Prevent tooltip from interfering with hover */
+        }
+
+        .nav-links a:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+            right: 120%;
+        }
+
+        /* Add fade out animation */
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                visibility: visible;
+            }
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        .tooltip-fade-out {
+            animation: fadeOut 0.3s ease forwards;
+        }
     </style>
 </head>
 <body>
@@ -110,7 +147,7 @@
                 </a>
             </li>
             <li>
-                <a href="#art">
+                <a href="#embroidery">
                     <svg class="nav-icon" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
                         <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
@@ -275,6 +312,39 @@
             
             const navLinks = document.querySelectorAll('.nav-links a');
             navLinks.forEach(link => {
+                const tooltip = link.querySelector('.tooltip');
+                let tooltipTimeout;
+                
+                link.addEventListener('mouseenter', () => {
+                    // Clear any existing timeout
+                    if (tooltipTimeout) {
+                        clearTimeout(tooltipTimeout);
+                    }
+                    
+                    // Remove fade out class if it exists
+                    tooltip.classList.remove('tooltip-fade-out');
+                    
+                    // Show tooltip
+                    tooltip.style.opacity = '1';
+                    tooltip.style.visibility = 'visible';
+                    
+                    // Set timeout to hide tooltip
+                    tooltipTimeout = setTimeout(() => {
+                        tooltip.classList.add('tooltip-fade-out');
+                    }, 2000); // Tooltip will start fading after 2 seconds
+                });
+                
+                link.addEventListener('mouseleave', () => {
+                    // Clear timeout if it exists
+                    if (tooltipTimeout) {
+                        clearTimeout(tooltipTimeout);
+                    }
+                    
+                    // Hide tooltip immediately when mouse leaves
+                    tooltip.classList.add('tooltip-fade-out');
+                });
+                
+                // Handle click events
                 if (link.getAttribute('href').startsWith('#') && link.getAttribute('href') !== '#') {
                     link.addEventListener('click', function(e) {
                         e.preventDefault();
@@ -282,10 +352,16 @@
                         navLinks.forEach(l => l.classList.remove('active'));
                         this.classList.add('active');
                         
+                        // Ensure tooltip is hidden on click
+                        tooltip.classList.add('tooltip-fade-out');
+                        
+                        // Your existing section transition code...
+                        const heroSection = document.querySelector('.hero-section');
+                        const sections = document.querySelectorAll('section:not(.hero-section)');
+                        
                         heroSection.classList.add('slide-up-out');
                         
                         setTimeout(() => {
-                            // Hide all sections
                             heroSection.style.display = 'none';
                             sections.forEach(section => {
                                 section.style.display = 'none';
@@ -302,7 +378,7 @@
                                     footer.style.display = 'block';
                                 }
                             }
-                        }, 300); // Matches the transition time
+                        }, 300);
                     });
                 }
             });
