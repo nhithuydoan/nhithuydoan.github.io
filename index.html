@@ -68,7 +68,7 @@
         
         .contact-btn:hover {
             background-color: var(--soft-rose);
-            color: var(--navy) !important; /* Using !important to ensure this override takes effect */
+            color: var(--navy) !important;
             border-color: var(--soft-rose);
         }
         
@@ -86,7 +86,6 @@
             transition: none;
         }
 
-        /* Update tooltip styles */
         .tooltip {
             position: absolute;
             right: 150%;
@@ -101,7 +100,7 @@
             transition: all 0.3s ease;
             white-space: nowrap;
             border-left: 2px solid var(--soft-rose);
-            pointer-events: none; /* Prevent tooltip from interfering with hover */
+            pointer-events: none; 
         }
 
         .nav-links a:hover .tooltip {
@@ -110,7 +109,6 @@
             right: 120%;
         }
 
-        /* Add fade out animation */
         @keyframes fadeOut {
             from {
                 opacity: 1;
@@ -170,7 +168,7 @@
                 </a>
             </li>
             <li>
-                <a href="" target="_blank">
+                <a href="Doan_CV_2025.pdf" target="_blank">
                     <svg class="nav-icon" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                         <polyline points="14 2 14 8 20 8"></polyline>
